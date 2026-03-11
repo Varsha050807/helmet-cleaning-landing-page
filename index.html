@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zefender | Advanced Helmet Cleaning</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="ph-fill ph-shield-check"></i>
+                Zefender
+            </a>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#process">How It Works</a>
+                <a href="#features">Features</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="icon-btn" aria-label="Toggle Theme">
+                    <i class="ph ph-sun" id="theme-icon"></i>
+                </button>
+                <a href="#demo" class="btn btn-primary">Book Demo</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-video-wrapper">
+            <!-- Placeholder for actual helmet cleaning video -->
+            <video class="hero-video" autoplay loop muted playsinline>
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+        </div>
+        
+        <div class="hero-content reveal">
+            <div class="badge">Next Generation Sanitation</div>
+            <h1>Advanced Helmet Cleaning <span class="gradient-text">Technology</span></h1>
+            <p>Fast, hygienic and fully automated helmet sanitation for professional and everyday riders. Experience the future of cleanliness.</p>
+            <div class="hero-buttons">
+                <a href="#process" class="btn btn-primary btn-lg">Watch Process <i class="ph ph-play-circle"></i></a>
+                <a href="#demo" class="btn btn-secondary btn-lg">Book a Demo</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="ph ph-mouse scroll-icon"></i>
+            <span class="scroll-text">Scroll to explore</span>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="process-section section-padding">
+        <div class="container text-center reveal">
+            <h2 class="section-title">The 3-Step Cleaning Process</h2>
+            <p class="section-subtitle">Fully automated, deep sanitation that preserves the integrity of your helmet.</p>
+        </div>
+        
+        <div class="container process-grid">
+            <!-- Connecting Line -->
+            <div class="process-line">
+                <div class="process-line-progress" id="process-progress"></div>
+            </div>
+
+            <!-- Step 1 -->
+            <div class="process-card glass-card reveal stagger-1">
+                <div class="process-video-container">
+                    <div class="video-placeholder step1-bg">
+                        <div class="animated-icon mist-effect">
+                            <i class="ph ph-drop"></i>
+                            <div class="mist-particles"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="process-info">
+                    <div class="step-badge">Step 1</div>
+                    <div class="step-dot"></div>
+                    <h3>Mist Spray Cleaning</h3>
+                    <p>High-pressure micro-mist removes dust, mud, and superficial particles from the helmet exterior and visor without causing scratches.</p>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="process-card glass-card reveal stagger-2">
+                <div class="process-video-container">
+                    <div class="video-placeholder step2-bg">
+                        <div class="animated-icon glow-effect">
+                            <i class="ph ph-virus"></i>
+                            <div class="glow-pulse"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="process-info">
+                    <div class="step-badge">Step 2</div>
+                    <div class="step-dot"></div>
+                    <h3>Deep Sanitization</h3>
+                    <p>Advanced UV-C and ozone sanitization technology neutralizes 99.9% of bacteria, viruses, and odors inside the padding.</p>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="process-card glass-card reveal stagger-3">
+                <div class="process-video-container">
+                    <div class="video-placeholder step3-bg">
+                        <div class="animated-icon wind-effect">
+                            <i class="ph ph-wind"></i>
+                            <div class="wind-lines"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="process-info">
+                    <div class="step-badge">Step 3</div>
+                    <div class="step-dot"></div>
+                    <h3>Air Drying</h3>
+                    <p>High-speed, temperature-controlled airflow safely dries the helmet interior, making it immediately ready for your next ride.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Decorative blobs -->
+        <div class="blob process-blob-1"></div>
+        <div class="blob process-blob-2"></div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="why" class="why-section section-padding">
+        <div class="container why-layout">
+            <div class="why-text reveal">
+                <h2>Why Choose Our Helmet Cleaning Machine?</h2>
+                <p>Designed with state-of-the-art technology to deliver unmatched hygiene while protecting delicate helmet materials.</p>
+                <a href="#features" class="btn btn-outline mt-4">Explore All Specs <i class="ph ph-arrow-right"></i></a>
+            </div>
+            
+            <div class="why-grid">
+                <div class="why-card glass-card reveal stagger-1">
+                    <div class="icon-wrapper"><i class="ph ph-shield-plus"></i></div>
+                    <h4>99.9% Germ Removal</h4>
+                    <p>Medical-grade sterilization for complete peace of mind.</p>
+                </div>
+                <div class="why-card glass-card reveal stagger-2">
+                    <div class="icon-wrapper"><i class="ph ph-timer"></i></div>
+                    <h4>30 Second Cycle</h4>
+                    <p>Lightning-fast automated processes save you valuable time.</p>
+                </div>
+                <div class="why-card glass-card reveal stagger-3">
+                    <div class="icon-wrapper"><i class="ph ph-check-circle"></i></div>
+                    <h4>Safe for All Helmets</h4>
+                    <p>Gentle on carbon fiber, polycarbonate, and premium visors.</p>
+                </div>
+                <div class="why-card glass-card reveal stagger-4">
+                    <div class="icon-wrapper"><i class="ph ph-robot"></i></div>
+                    <h4>Fully Automated</h4>
+                    <p>Zero touch operation. Just place the helmet and press start.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section id="features" class="features-section section-padding">
+        <div class="container text-center reveal">
+            <h2 class="section-title">Technical Specifications</h2>
+            <p class="section-subtitle">Engineered for performance, durability, and efficiency.</p>
+        </div>
+        
+        <div class="container features-grid mt-5">
+            <div class="feature-card glass-card reveal outline-card">
+                <i class="ph ph-lightning feature-icon"></i>
+                <h3>Fast Performance</h3>
+                <p>Optimized fluid dynamics and air circulation reduce cycle time by 40%.</p>
+            </div>
+            <div class="feature-card glass-card reveal outline-card stagger-1">
+                <i class="ph ph-sparkle feature-icon"></i>
+                <h3>Hygienic Sanitization</h3>
+                <p>Dual-action UV and Ozone cleaning penetrates deep into foam layers.</p>
+            </div>
+            <div class="feature-card glass-card reveal outline-card stagger-2">
+                <i class="ph ph-cpu feature-icon"></i>
+                <h3>Smart Sensor Tech</h3>
+                <p>Auto-detects helmet size and material to adjust cleaning pressure.</p>
+            </div>
+            <div class="feature-card glass-card reveal outline-card">
+                <i class="ph ph-leaf feature-icon"></i>
+                <h3>Eco Friendly</h3>
+                <p>Recirculating water system and low-energy modes minimize environmental impact.</p>
+            </div>
+            <div class="feature-card glass-card reveal outline-card stagger-1">
+                <i class="ph ph-cube feature-icon"></i>
+                <h3>Compact Machine Design</h3>
+                <p>Space-saving footprint ideal for retail stores, garages, and race pits.</p>
+            </div>
+            <div class="feature-card glass-card reveal outline-card stagger-2">
+                <i class="ph ph-wrench feature-icon"></i>
+                <h3>Low Maintenance</h3>
+                <p>Self-cleaning internal nozzles and easily replaceable filter cartridges.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted Users Marquee -->
+    <section class="trusted-section section-padding">
+        <div class="container text-center reveal">
+            <p class="trusted-title">Trusted by Riders & Organizations Everywhere</p>
+        </div>
+        
+        <div class="marquee-container reveal">
+            <div class="marquee-content">
+                <!-- Repeated for seamless loop -->
+                <div class="marquee-item"><i class="ph ph-motorcycle"></i> MotoGP Teams</div>
+                <div class="marquee-item"><i class="ph ph-bicycle"></i> Tour de France</div>
+                <div class="marquee-item"><i class="ph ph-buildings"></i> City Rentals</div>
+                <div class="marquee-item"><i class="ph ph-storefront"></i> Premium Dealers</div>
+                <div class="marquee-item"><i class="ph ph-police-car"></i> Highway Patrols</div>
+                <div class="marquee-item"><i class="ph ph-shield-star"></i> Racing Academies</div>
+                <!-- Duplicate -->
+                <div class="marquee-item"><i class="ph ph-motorcycle"></i> MotoGP Teams</div>
+                <div class="marquee-item"><i class="ph ph-bicycle"></i> Tour de France</div>
+                <div class="marquee-item"><i class="ph ph-buildings"></i> City Rentals</div>
+                <div class="marquee-item"><i class="ph ph-storefront"></i> Premium Dealers</div>
+                <div class="marquee-item"><i class="ph ph-police-car"></i> Highway Patrols</div>
+                <div class="marquee-item"><i class="ph ph-shield-star"></i> Racing Academies</div>
+            </div>
+        </div>
+        
+        <div class="blob trusted-blob"></div>
+    </section>
+
+    <!-- Contact / Demo CTA -->
+    <section id="contact" class="cta-section section-padding">
+        <div class="container reveal">
+            <div class="cta-box glass-card">
+                <div class="cta-content">
+                    <h2>Ready to upgrade your hygiene standards?</h2>
+                    <p>Pre-order the Zefender machine today or book a live demonstration.</p>
+                </div>
+                <div class="cta-actions">
+                    <button class="btn btn-primary btn-lg">Book a Live Demo</button>
+                    <button class="btn btn-secondary btn-lg">Contact Sales</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <i class="ph-fill ph-shield-check"></i>
+                    Zefender
+                </a>
+                <p>The pioneer in automated helmet sanitation technology.</p>
+                <div class="social-links">
+                    <a href="#"><i class="ph ph-twitter-logo"></i></a>
+                    <a href="#"><i class="ph ph-instagram-logo"></i></a>
+                    <a href="#"><i class="ph ph-youtube-logo"></i></a>
+                    <a href="#"><i class="ph ph-linkedin-logo"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">Partner Program</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Manuals</a></li>
+                    <li><a href="#">Warranty</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h4>Get in Touch</h4>
+                <div class="contact-item">
+                    <i class="ph ph-envelope-simple"></i>
+                    <span>hello@zefender.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="ph ph-phone"></i>
+                    <span>+1 (800) 123-4567</span>
+                </div>
+                <div class="contact-item">
+                    <i class="ph ph-map-pin"></i>
+                    <span>123 Innovation Drive,<br>Tech District, CA 94103</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Zefender Technologies. All rights reserved.</p>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
