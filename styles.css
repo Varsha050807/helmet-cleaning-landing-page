@@ -76,6 +76,7 @@ body {
     transition: background-color var(--transition-standard), color var(--transition-standard);
     overflow-x: hidden;
     line-height: 1.6;
+    margin: 0;
 }
 
 h1,
@@ -100,7 +101,7 @@ ul {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
+
 }
 
 .section-padding {
@@ -295,32 +296,35 @@ ul {
 /* Hero Section */
 .hero {
     position: relative;
-    min-height: 100vh;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 6rem 2rem 2rem;
-    overflow: hidden;
 }
 
 .hero-video-wrapper {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
+    overflow: hidden;
     z-index: -1;
 }
 
 .hero-video {
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
     object-fit: cover;
-    filter: grayscale(20%);
 }
+
 
 .hero-overlay {
     position: absolute;
+<<<<<<< HEAD
     top: 0;
     left: 0;
     width: 100%;
@@ -330,6 +334,14 @@ ul {
             rgba(3, 7, 18, 0.7) 0%,
             rgba(3, 7, 18, 0.8) 50%,
             var(--bg-primary) 100%);
+=======
+    inset: 0;
+    background: linear-gradient(to bottom,
+            rgba(3, 7, 18, 0.4) 0%,
+            rgba(3, 7, 18, 0.5) 40%,
+            rgba(3, 7, 18, 0.7) 100%);
+}
+>>>>>>> 968469f (message)
 }
 
 [data-theme="light"] .hero-overlay {
@@ -871,6 +883,15 @@ ul {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+}
+
+.why-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px -10px rgba(59, 130, 246, 0.3);
+    border-color: var(--accent-primary);
 }
 
 .icon-wrapper {
@@ -883,22 +904,70 @@ ul {
     align-items: center;
     justify-content: center;
     font-size: 1.8rem;
-    transition: transform 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    z-index: 2;
 }
 
 .why-card:hover .icon-wrapper {
-    transform: scale(1.1) rotate(5deg);
+    transform: scale(1.15) rotate(8deg);
     background: var(--accent-primary);
     color: white;
+    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+}
+
+.why-card h4,
+.why-card p {
+    position: relative;
+    z-index: 2;
 }
 
 .why-card h4 {
     font-size: 1.1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* Animations for Text Reveal */
+.animated-text span {
+    display: inline-block;
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+}
+
+@keyframes flyInAssemble {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .why-card p {
     font-size: 0.9rem;
     color: var(--text-secondary);
+    opacity: 0;
+    /* Hidden initially */
+}
+
+/* Class to fade in paragraph after heading finishes */
+.why-card .fade-in-delayed {
+    animation: simpleFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes simpleFadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 /* Scroll-Driven Story Section */
@@ -919,10 +988,17 @@ ul {
     min-height: 50vh;
     display: flex;
     flex-direction: column;
+<<<<<<< HEAD
     justify-content: center;
     opacity: 0.3;
     transition: opacity 0.5s ease, transform 0.5s ease;
     transform: translateY(20px);
+=======
+    align-items: center;
+    gap: 1rem;
+
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+>>>>>>> 968469f (message)
 }
 
 .story-step.active {
@@ -930,6 +1006,7 @@ ul {
     transform: translateY(0);
 }
 
+<<<<<<< HEAD
 .story-step .step-number {
     font-size: 3rem;
     font-weight: 800;
@@ -1015,6 +1092,24 @@ ul {
         margin-bottom: 1rem;
         z-index: 10;
     }
+=======
+.outline-card:hover {
+    background: var(--card-bg);
+    border-color: var(--accent-primary);
+    transform: translateY(-18px) scale(1.03);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.45);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    color: var(--accent-primary);
+    margin-bottom: 0.5rem;
+    transition: transform 0.45s ease;
+}
+
+.outline-card:hover .feature-icon {
+    transform: scale(1.35) translateY(-8px);
+>>>>>>> 968469f (message)
 }
 
 /* Trusted Users Marquee */
