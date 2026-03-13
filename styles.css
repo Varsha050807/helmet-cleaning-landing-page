@@ -329,7 +329,7 @@ ul {
             rgba(3, 7, 18, 0.5) 40%,
             rgba(3, 7, 18, 0.7) 100%);
 }
-}
+
 
 [data-theme="light"] .hero-overlay {
     background: linear-gradient(to bottom,
@@ -402,7 +402,7 @@ ul {
 
 .process-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 2.5rem;
     position: relative;
     z-index: 2;
@@ -478,11 +478,10 @@ ul {
 }
 
 .process-video-container {
-    height: 250px;
     width: 100%;
+    aspect-ratio: 16/9;
     position: relative;
     overflow: hidden;
-    background: var(--bg-secondary);
 }
 
 .process-video-container video {
@@ -873,14 +872,32 @@ ul {
 
 /* --- Premium 3D float and Tilt Interaction --- */
 
-.why-card:nth-child(1) { animation: card-float 4.2s ease-in-out infinite; }
-.why-card:nth-child(2) { animation: card-float 5.1s ease-in-out infinite 0.5s; }
-.why-card:nth-child(3) { animation: card-float 4.8s ease-in-out infinite 1.2s; }
-.why-card:nth-child(4) { animation: card-float 5.6s ease-in-out infinite 0.8s; }
+.why-card:nth-child(1) {
+    animation: card-float 4.2s ease-in-out infinite;
+}
+
+.why-card:nth-child(2) {
+    animation: card-float 5.1s ease-in-out infinite 0.5s;
+}
+
+.why-card:nth-child(3) {
+    animation: card-float 4.8s ease-in-out infinite 1.2s;
+}
+
+.why-card:nth-child(4) {
+    animation: card-float 5.6s ease-in-out infinite 0.8s;
+}
 
 @keyframes card-float {
-    0%, 100% { translate: 0 0; }
-    50% { translate: 0 -10px; }
+
+    0%,
+    100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -10px;
+    }
 }
 
 /* Base why-card */
@@ -900,7 +917,7 @@ ul {
 }
 
 /* Ensure content stays above the background/glow */
-.why-card > * {
+.why-card>* {
     position: relative;
     z-index: 2;
 }
@@ -911,16 +928,15 @@ ul {
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    background: radial-gradient(
-        circle 300px at var(--mx, 50%) var(--my, 50%),
-        rgba(255, 255, 255, 0.15) 0%,
-        transparent 100%
-    );
+    background: radial-gradient(circle 300px at var(--mx, 50%) var(--my, 50%),
+            rgba(255, 255, 255, 0.15) 0%,
+            transparent 100%);
     opacity: 0;
     transition: opacity 0.3s ease;
     z-index: 0;
     pointer-events: none;
 }
+
 .why-card:hover::before {
     opacity: 1;
 }
@@ -962,7 +978,7 @@ ul {
 
 .why-card:hover h4 {
     transform: translateY(-4px) translateZ(30px);
-    text-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    text-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
 .why-card:hover p {
@@ -1458,4 +1474,291 @@ ul {
         gap: 1rem;
         text-align: center;
     }
+}
+
+/* Floating card animation */
+
+@keyframes cardFloat {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.why-card {
+    animation: cardFloat 6s ease-in-out infinite;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* hover glow */
+
+.why-card:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 25px 60px rgba(59, 130, 246, 0.35);
+}
+
+/* icon micro animation */
+
+.why-card:hover .icon-wrapper {
+    transform: scale(1.2) rotate(8deg);
+}
+
+.demo-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.demo-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+            rgba(255, 255, 255, 0.18),
+            transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.demo-card:hover::before {
+    opacity: 1;
+}
+
+/* =========================================
+   Scroll-Driven Story Section
+   ========================================= */
+
+.story-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 4rem;
+    position: relative;
+}
+
+/* Left Side: Text Content */
+.story-content {
+    flex: 1;
+    min-width: 300px;
+    padding-bottom: 50vh;
+    /* Extra space to allow scrolling past the last step */
+}
+
+.story-step {
+    min-height: 80vh;
+    /* Make each step tall enough to trigger scroll events */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0.15;
+    transform: translateY(40px);
+    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.story-step.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.story-step .step-number {
+    font-size: 4rem;
+    font-weight: 800;
+    font-family: 'Outfit', sans-serif;
+    background: linear-gradient(135deg, var(--accent-secondary), var(--accent-primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    opacity: 0.4;
+    margin-bottom: 1rem;
+    transition: opacity 0.7s ease;
+}
+
+.story-step.active .step-number {
+    opacity: 1;
+}
+
+.story-step h3 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    transition: color 0.7s ease;
+}
+
+.story-step p {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    max-width: 500px;
+}
+
+.story-step.active h3 {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Right Side: Sticky Visuals */
+.story-visual {
+    flex: 1;
+    min-width: 300px;
+    height: 100vh;
+    /* Take full viewport height */
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sticky-video-container {
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 9/16;
+    /* Portrait aspect ratio suitable for videos */
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    background: var(--bg-secondary);
+    border: 1px solid var(--card-border);
+}
+
+.story-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.05);
+    transition: opacity 0.8s ease, visibility 0.8s ease, transform 0.8s ease;
+}
+
+.story-video.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+@media (max-width: 992px) {
+    .story-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .story-visual {
+        position: sticky;
+        top: 80px;
+        /* Below navbar */
+        height: 50vh;
+        width: 100%;
+        margin-bottom: 2rem;
+        z-index: -1;
+        /* Keep under text if scrolling overlaps */
+    }
+
+    .story-content {
+        padding-bottom: 10vh;
+    }
+
+    .story-step {
+        min-height: 60vh;
+    }
+}
+
+/* ============================
+   Demo Card Video Hover Reveal
+   ============================ */
+
+.demo-card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* hidden video layer */
+
+.demo-video {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transform: scale(1.2);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1;
+}
+
+.demo-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* dark overlay */
+
+.demo-video::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+}
+
+/* text above video */
+
+.demo-card h3,
+.demo-card p {
+    position: relative;
+    z-index: 2;
+}
+
+/* hover reveal */
+
+.demo-card:hover .demo-video {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.card-preview video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.demo-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-preview {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.35s ease;
+    border-radius: 12px;
+}
+
+.card-preview video {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+/* show video on hover */
+.demo-card:hover .card-preview {
+    height: 180px;
+}
+
+.demo-card {
+    padding: 40px 30px;
+    min-height: 300px;
 }
