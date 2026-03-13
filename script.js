@@ -69,45 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                 }
 
-<<<<<<< HEAD
-=======
-                // If it's a why-card, trigger letter animation
-                if (entry.target.classList.contains('why-card')) {
-                    const heading = entry.target.querySelector('h4');
-                    // Ensure we only process if heading exists and hasn't been animated
-                    if (heading && !heading.classList.contains('animated-text')) {
-                        const text = heading.textContent;
-                        heading.textContent = '';
-                        heading.classList.add('animated-text');
-
-                        // Split into spans mapping characters
-                        [...text].forEach((char, i) => {
-                            const span = document.createElement('span');
-
-                            // For spaces, use a non-breaking space mapping or CSS space logic
-                            if (char === ' ') {
-                                span.innerHTML = '&nbsp;';
-                            } else {
-                                span.textContent = char;
-                            }
-
-                            // Set a stagger delay, ~40ms feels premium
-                            span.style.animationDelay = `${i * 40}ms`;
-                            heading.appendChild(span);
-                        });
-
-                        // Trigger paragraph fade in after heading animation completes
-                        const paragraph = entry.target.querySelector('p');
-                        if (paragraph) {
-                            // Delay fading by (text length * delay per letter) + CSS flyInAssemble duration
-                            // length * 40ms + 500ms + some wiggle room padding
-                            paragraph.style.animationDelay = `${(text.length * 40) + 200}ms`;
-                            paragraph.classList.add('fade-in-delayed');
-                        }
-                    }
-                }
-
->>>>>>> 968469f (message)
                 observer.unobserve(entry.target); // Only animate once
             }
         });
@@ -116,7 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
     revealElements.forEach(el => {
         revealObserver.observe(el);
     });
-<<<<<<< HEAD
 
     // 4. Scroll-Driven Story Videos
     const storySteps = document.querySelectorAll('.story-step');
@@ -156,59 +116,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
         storySteps.forEach(step => storyObserver.observe(step));
     }
-=======
-    // 4. 3D Tilt Effect for Why Cards
+
+    // 5. 3D Hover Tilt & Lighting Effect for Feature Cards
     const whyCards = document.querySelectorAll('.why-card');
-
+    
     whyCards.forEach(card => {
-
         card.addEventListener('mousemove', (e) => {
-
             const rect = card.getBoundingClientRect();
-
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-
+            
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
-
-            const rotateX = -(y - centerY) / 12;
-            const rotateY = (x - centerX) / 12;
-
-            card.style.transform = `
-            rotateX(${rotateX}deg)
-            rotateY(${rotateY}deg)
-            scale(1.03)
-        `;
+            
+            const rotateY = ((x - centerX) / centerX) * 12; // max 12deg
+            const rotateX = ((centerY - y) / centerY) * 12; // max 12deg
+            
+            card.style.setProperty('--rx', `${rotateX}deg`);
+            card.style.setProperty('--ry', `${rotateY}deg`);
+            card.style.setProperty('--mx', `${x}px`);
+            card.style.setProperty('--my', `${y}px`);
         });
 
         card.addEventListener('mouseleave', () => {
-            card.style.transform = 'rotateX(0) rotateY(0) scale(1)';
+            card.style.removeProperty('--rx');
+            card.style.removeProperty('--ry');
+            card.style.removeProperty('--mx');
+            card.style.removeProperty('--my');
         });
-
     });
-    // Letter by letter animation for Why cards
-    document.querySelectorAll(".why-card h4").forEach((heading) => {
-
-        const text = heading.textContent;
-        heading.textContent = "";
-        heading.classList.add("animated-text");
-
-        [...text].forEach((letter, index) => {
-            const span = document.createElement("span");
-
-            span.textContent = letter === " " ? "\u00A0" : letter;
-            span.style.animationDelay = `${index * 0.05}s`;
-
-            heading.appendChild(span);
-        });
-
-        // fade paragraph after letters
-        const paragraph = heading.parentElement.querySelector("p");
-
-        setTimeout(() => {
-            paragraph.classList.add("fade-in-delayed");
-        }, text.length * 50 + 200);
-    });
->>>>>>> 968469f (message)
-});
+});
