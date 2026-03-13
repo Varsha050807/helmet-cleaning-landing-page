@@ -862,6 +862,7 @@ ul {
 .why-card p {
     font-size: 0.9rem;
     color: var(--text-secondary);
+<<<<<<< HEAD
 }
 
 /* --- Premium Hover Interaction for Why Cards --- */
@@ -898,6 +899,8 @@ ul {
     50% {
         translate: 0 -10px;
     }
+=======
+>>>>>>> d88bb097f6cceec62af05e71e0370b272ab72f14
 }
 
 /* Base why-card */
@@ -1476,6 +1479,7 @@ ul {
     }
 }
 
+<<<<<<< HEAD
 /* Floating card animation */
 
 @keyframes cardFloat {
@@ -1761,4 +1765,35 @@ ul {
 .demo-card {
     padding: 40px 30px;
     min-height: 300px;
+=======
+.future-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    margin-top: 60px;
+}
+
+.future-item {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.future-item.reverse {
+    flex-direction: row-reverse;
+}
+
+.future-image img {
+    width: 420px;
+    border-radius: 14px;
+}
+
+.future-text {
+    max-width: 500px;
+}
+
+.future-text h3 {
+    font-size: 26px;
+    margin-bottom: 10px;
+>>>>>>> d88bb097f6cceec62af05e71e0370b272ab72f14
 }
