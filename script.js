@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Theme Toggle Logic
     const themeToggleBtn = document.getElementById('theme-toggle');
@@ -120,19 +119,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 5. 3D Hover Tilt & Lighting Effect for Feature Cards
     const whyCards = document.querySelectorAll('.why-card');
-    
+
     whyCards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-            
+
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
-            
+
             const rotateY = ((x - centerX) / centerX) * 12; // max 12deg
             const rotateX = ((centerY - y) / centerY) * 12; // max 12deg
-            
+
             card.style.setProperty('--rx', `${rotateX}deg`);
             card.style.setProperty('--ry', `${rotateY}deg`);
             card.style.setProperty('--mx', `${x}px`);
@@ -147,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
-=======
+
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Theme Toggle Logic
     const themeToggleBtn = document.getElementById('theme-toggle');
@@ -267,4 +266,3 @@ document.addEventListener('DOMContentLoaded', () => {
         storySteps.forEach(step => storyObserver.observe(step));
     }
 });
->>>>>>> d88bb097f6cceec62af05e71e0370b272ab72f14
